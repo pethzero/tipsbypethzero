@@ -1,0 +1,3 @@
+pip install pyinstaller
+
+pyinstaller --onefile hello_tkinter.py
