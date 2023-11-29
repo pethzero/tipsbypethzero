@@ -1,0 +1,13 @@
+
+ใช้   Visual Studio 2022 ทำ
+โดย  สร้าง cpp ที่ socure file 
+ปิด To turn off precompiled headers
+https://learn.microsoft.com/en-us/cpp/error-messages/compiler-errors-1/fatal-error-c1010?view=msvc-170&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(C1010)%26rd%3Dtrue
+
+สร้างไฟล์ที่
+add_numbers.cpp
+#include <iostream>
+
+extern "C" __declspec(dllexport) int add_numbers(int a, int b) {
+    return a + b;
+}

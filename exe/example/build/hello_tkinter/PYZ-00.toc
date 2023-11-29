@@ -1,4 +1,4 @@
-('D:\\PYTHON\\exe\\build\\hello_tkinter\\PYZ-00.pyz',
+('D:\\PYTHON\\tip\\exe\\build\\hello_tkinter\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Users\\pethzero\\AppData\\Local\\Programs\\Python\\Python310\\lib\\_compat_pickle.py',
    'PYMODULE'),
