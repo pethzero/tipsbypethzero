@@ -1,0 +1,35 @@
+http://www.egtry.com/csharp/build/dll
+
+Step 1. Compile the c# classes into dll
+csc.exe /t:library /out:Math1.dll Addition.cs
+
+
+Addition.cs
+using System;
+namespace MyMath {
+  public class Addition {
+
+    public static int add(int a, int b) {
+       return a+b;
+    }
+  }
+}
+
+
+Step 2. Compile a test c# class that use the dll
+csc.exe /reference:Math1.dll TestMath.cs
+or
+csc.exe /reference:Math1.dll /lib:somedirectory_that_have_Math1.dll TestMath.cs
+
+
+TestMath.cs
+using System;
+using MyMath;
+
+
+public class Hello {
+
+  public static void Main() {
+    Console.Write("Result: "+Addition.add(1,3));
+	}
+}

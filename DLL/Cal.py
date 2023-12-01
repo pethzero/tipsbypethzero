@@ -1,7 +1,7 @@
 from ctypes import cdll
 
 def main():
-    my_dll = cdll.LoadLibrary('.\\EXAMPLE.dll')
+    my_dll = cdll.LoadLibrary('.\\Calculate.dll')
 
     # Call the add_numbers function from the DLL
     result_add = my_dll.add_numbers(5, 7)

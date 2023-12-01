@@ -1,0 +1,28 @@
+1.create mydll.cpp
+
+#include <iostream>
+
+extern "C" __declspec(dllexport) void HelloWorld() {
+    std::cout << "Hello, World from DLL!" << std::endl;
+}
+
+
+2.cl /LD mydll.cpp
+
+3.สร้าง main.cpp ขึ้นมาเพื่อ
+// main.cpp
+#include <iostream>
+extern "C" __declspec(dllimport) void HelloWorld();
+
+int main() {
+    HelloWorld();
+    return 0;
+}
+
+4.cl main.cpp mydll.lib
+
+5.
+cmd
+main.exe
+
+หรือใช้ visual studio debug
