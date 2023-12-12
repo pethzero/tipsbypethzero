@@ -1,1 +1,1 @@
-,:customer, :drawno, :revno, :partname, :recdate, :remark, :modifiedby, :modifiedby
+now() ,'' ,'t' ,:userlevel ,:empno ,:empname ,'' ,:empnick ,:login ,:pass ,now() ,:img
