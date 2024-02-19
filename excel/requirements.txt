@@ -1,0 +1,3 @@
+pip install pandas
+pip install xlsxwriter
+pip install xlrd

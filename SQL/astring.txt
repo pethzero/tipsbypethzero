@@ -1,0 +1,1 @@
+INSERT INTO billdetail (recno, lastupd, created, code, sname, name, year, itemno, detail) VALUES (:recno, NOW(), NOW(), :code, :sname, :name, :year, :itemno, :detail)

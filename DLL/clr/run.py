@@ -13,4 +13,4 @@ msg = MSGShow()
 print(msg.Happy("python"))
 
 # call Sad Function
-print(msg.Sad("Golang"))
+print(msg.Sad("PethZero"))

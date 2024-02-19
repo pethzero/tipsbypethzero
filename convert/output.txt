@@ -1,1 +1,5 @@
-now() ,'' ,'t' ,:userlevel ,:empno ,:empname ,'' ,:empnick ,:login ,:pass ,now() ,:img
+invcrefamt
+incnewamt
+cnvatamt
+cnnetamt
+cntotalamt
