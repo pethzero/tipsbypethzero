@@ -1,0 +1,5 @@
+$stmt->bindParam(':code', $data['code']);
+$stmt->bindParam(':sname', $data['sname']);
+$stmt->bindParam(':name', $data['name']);
+$stmt->bindParam(':year', $data['year']);
+$stmt->bindParam(':detail', $data['detail']);

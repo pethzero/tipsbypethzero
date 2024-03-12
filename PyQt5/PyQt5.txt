@@ -1,0 +1,10 @@
+python -m venv PyQt5
+
+If you don't see designer.exe in the scripts folder, check the bin folder (\Lib\site-packages\qt5_applications\Qt\bin) see if the binary is there.
+
+pip install PyQt5
+
+pip install PyQt5-sip==12.12.2
+
+pip install PyQt5-tools
+PyQt5-sip        12.12.2

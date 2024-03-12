@@ -3,3 +3,5 @@ python -m venv env
 
 START
 .\env\Scripts\activate
+
+.\env\Scripts\activate
