@@ -1,0 +1,6 @@
+Junk Data  ||D:\TEST\tipsbypethzero\createfolder\process_delete\pic\EXAMPLE.pdf
+File Data Have ||D:\TEST\tipsbypethzero\createfolder\process_delete\pic\3\14\golf-cart_id11.png
+Junk Data  ||D:\TEST\tipsbypethzero\createfolder\process_delete\pic\4\Snack-Break.png
+Junk Data  ||D:\TEST\tipsbypethzero\createfolder\process_delete\pic\6\32\1 SVI Telephone Directory_20240411_081137_id10.xlsx
+Junk Data  ||D:\TEST\tipsbypethzero\createfolder\process_delete\pic\6\32\SVI visitor business-1_20240408_055132_id9.xlsx
+Junk Data  ||D:\TEST\tipsbypethzero\createfolder\process_delete\pic\wifi\EXAMPLE.pdf

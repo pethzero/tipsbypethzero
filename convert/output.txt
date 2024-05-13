@@ -1,1 +1,7 @@
-DELIVERY
+select  count(distinct(a.customer)) as customer,sum(a.hc_qty) as person
+      ,sum(a.svi_hc_qty) as sviperson
+      ,CONVERT (varchar(10) ,booking_date,121) as booking_date 
+     from OP_DOC_CTRL.dbo.customer_lunch_arrangement a
+     inner join svi_workweek  c on a.booking_date  BETWEEN c.start_date  and c.end_date 
+      WHERE a.id is not null 
+     GROUP BY  CONVERT (varchar(10) ,booking_date,121)

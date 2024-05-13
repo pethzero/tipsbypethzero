@@ -1,0 +1,19 @@
+Folder: D:\TEST\tipsbypethzero\createfolder\pic
+File: D:\TEST\tipsbypethzero\createfolder\pic\EXAMPLE.pdf
+File: D:\TEST\tipsbypethzero\createfolder\pic\golf-cart_id11.png
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\1
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\1\5
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\3
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\3\14
+File: D:\TEST\tipsbypethzero\createfolder\pic\3\14\golf-cart_id11.png
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\4
+File: D:\TEST\tipsbypethzero\createfolder\pic\4\Snack-Break.png
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\4\17
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\5
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\5\23
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\6
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\6\32
+File: D:\TEST\tipsbypethzero\createfolder\pic\6\32\1 SVI Telephone Directory_20240411_081137_id10.xlsx
+File: D:\TEST\tipsbypethzero\createfolder\pic\6\32\SVI visitor business-1_20240408_055132_id9.xlsx
+Folder: D:\TEST\tipsbypethzero\createfolder\pic\wifi
+File: D:\TEST\tipsbypethzero\createfolder\pic\wifi\EXAMPLE.pdf
