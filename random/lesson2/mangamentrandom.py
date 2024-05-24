@@ -27,7 +27,8 @@ def generate_locker_id(data_management, data_count, data_request):
 data_management = [ {'id': 1, 'gender': 'T', 'count': 0}, {'id': 2, 'gender': 'T', 'count': 0}, {'id': 3, 'gender': 'T', 'count': 0}, {'id': 4, 'gender': 'T', 'count': 0}, {'id': 5, 'gender': 'T', 'count': 0}, {'id': 6, 'gender': 'T', 'count': 0}, {'id': 7, 'gender': 'T', 'count': 0}, {'id': 8, 'gender': 'T', 'count': 0}, {'id': 9, 'gender': 'T', 'count': 0}, {'id': 10, 'gender': 'T', 'count': 0}, {'id': 11, 'gender': 'T', 'count': 0}, {'id': 12, 'gender': 'T', 'count': 0}, {'id': 13, 'gender': 'T', 'count': 0}, {'id': 14, 'gender': 'T', 'count': 0}, {'id': 15, 'gender': 'T', 'count': 0}, {'id': 16, 'gender': 'T', 'count': 0}, {'id': 17, 'gender': 'T', 'count': 0}, {'id': 18, 'gender': 'T', 'count': 0}, {'id': 19, 'gender': 'T', 'count': 0}, {'id': 20, 'gender': 'T', 'count': 0}, {'id': 21, 'gender': 'T', 'count': 0}, {'id': 22, 'gender': 'T', 'count': 0}, {'id': 23, 'gender': 'T', 'count': 0}, {'id': 24, 'gender': 'T', 'count': 0}, {'id': 25, 'gender': 'T', 'count': 0}, {'id': 26, 'gender': 'T', 'count': 0}, {'id': 27, 'gender': 'T', 'count': 0}, {'id': 28, 'gender': 'T', 'count': 0}, {'id': 29, 'gender': 'T', 'count': 0}, {'id': 30, 'gender': 'T', 'count': 0}]
 
 
-data_request = [ {'name': 'A', 'gender': 'M', 'en': 11100}
+data_request = [ 
+ {'name': 'A', 'gender': 'M', 'en': 11100}
 ,{'name': 'B', 'gender': 'F', 'en': 11101}
 ,{'name': 'C', 'gender': 'M', 'en': 11102}
 ,{'name': 'D', 'gender': 'F', 'en': 11103}
