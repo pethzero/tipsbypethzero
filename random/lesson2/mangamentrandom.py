@@ -25,35 +25,9 @@ def generate_locker_id(data_management, data_count, data_request):
 
 def generate_locker_id_new(data_management, data_count, data_request):
     output = []
-    data_dulpicate = []
     for item in data_request:
         gender = item['gender']
         plant = item['plant']
-        # print('DATA',item['name'])
-        
-        # if len(data_dulpicate) > 0:
-        #     # เลือกข้อมูลที่มี gender เป็น 'T' เติม  และ count < 2
-        #     filtered_data_temp = [data for data in data_dulpicate 
-        #                     if (data['gender'] == 'T' or data['gender'] == gender) 
-        #                         and data['count'] < data_count
-        #                         and data['plant'] == plant]
-        #     # if()
-        #     print(filtered_data_temp)
-        # else:
-        #     filtered_data = [data for data in data_management 
-        #                     if (data['gender'] == 'T' or data['gender'] == gender) 
-        #                         and data['count'] < data_count
-        #                         and data['plant'] == plant]
-            
-        #     if filtered_data:
-        #         random_data = random.choice(filtered_data)
-        #         random_data['count'] += 1
-        #         random_data['gender'] = gender
-        #         locker_id = random_data['id']
-        #         data_dulpicate.append(random_data)
-        #         print('PP',data_dulpicate)
-        #     else:
-        #         locker_id = None
                 
         filtered_data = [data for data in data_management 
                             if (data['gender'] == 'T' or data['gender'] == gender) 
@@ -72,23 +46,74 @@ def generate_locker_id_new(data_management, data_count, data_request):
         # เพิ่มข้อมูลลงใน output พร้อมกับ locker_id ที่สร้างขึ้น
         item['locker_id'] = locker_id
         output.append(item)
-        
-        # print('Oput',output)
-    print(data_management)
     return output
 
+def generate_locker_id_prepare(data_management, data_count, data_request):
+    output = []
+    data_dulpicate = []
+    for item in data_request:
+        gender = item['gender']
+        plant = item['plant']
+        if len(data_management) > 0:     
+            if len(data_dulpicate) > 0:
+                    filtered_data_dulpicate =  [data for data in data_dulpicate 
+                                    if (data['gender'] == 'T' or data['gender'] == gender) 
+                                    and data['count'] < data_count
+                                    and data['plant'] == plant
+                                    and data['exit'] == 'F'
+                                    ]
+                    if filtered_data_dulpicate:
+                        get_locker_data = max(filtered_data_dulpicate, key=lambda x: x['count'])
+                        get_locker_data['count'] += 1
+                        lk_id = get_locker_data['id'] 
+                    else:
+                        filtered_data_new  = [data for data in data_management 
+                                if (data['gender'] == 'T' or data['gender'] == gender) 
+                                    and data['count'] < data_count
+                                    and data['plant'] == plant
+                                    ]
+                        if filtered_data_new:
+                            random_data = random.choice(filtered_data_new)
+                            random_data['count'] += 1
+                            random_data['gender'] = gender
+                            lk_id = random_data['id']
+                            data_dulpicate.append(random_data)
+                            data_management.remove(random_data)
+                        else:
+                            lk_id = None
+            else:
+                    filtered_data = [data for data in data_management 
+                                if (data['gender'] == 'T' or data['gender'] == gender) 
+                                    and data['count'] < data_count
+                                    and data['plant'] == plant
+                                    ]
+                    if filtered_data:
+                        random_data = random.choice(filtered_data)
+                        random_data['count'] += 1
+                        random_data['gender'] = gender
+                        lk_id = random_data['id']
+                        data_dulpicate.append(random_data)
+                        data_management.remove(random_data)
+            locker_id = lk_id
+        else:
+            locker_id = None
+            
+            
+        item['locker_id'] = locker_id
+        output.append(item)
+    return output
 
 data_management = [ 
 {'id': 1, 'plant':'SVI2A','gender': 'T', 'count': 0,'exit':'F'}, 
 {'id': 2, 'plant':'SVI2A','gender': 'T', 'count': 0,'exit':'F'}, 
 {'id': 3, 'plant':'SVI2A','gender': 'T', 'count': 0,'exit':'F'}, 
 {'id': 4, 'plant':'SVI2A','gender': 'T', 'count': 0,'exit':'F'}, 
-# {'id': 5, 'plant':'SVI2B','gender': 'T', 'count': 0}, 
-# {'id': 6, 'plant':'SVI2B','gender': 'T', 'count': 0}, 
-# {'id': 7, 'plant':'SVI2B','gender': 'T', 'count': 0}, 
-# {'id': 8, 'plant':'SVI2B','gender': 'T', 'count': 0}, 
-# {'id': 9, 'plant':'SVI2C','gender': 'T', 'count': 0}, 
-# {'id': 10,'plant':'SVI2C', 'gender': 'T', 'count': 0}, 
+{'id': 5, 'plant':'SVI2B','gender': 'T', 'count': 0,'exit':'F'}, 
+{'id': 6, 'plant':'SVI2B','gender': 'T', 'count': 0,'exit':'F'}, 
+{'id': 7, 'plant':'SVI2B','gender': 'T', 'count': 0,'exit':'F'}, 
+{'id': 8, 'plant':'SVI2B','gender': 'T', 'count': 0,'exit':'F'}, 
+{'id': 9, 'plant':'SVI2C','gender': 'T', 'count': 0,'exit':'F'}, 
+{'id': 10,'plant':'SVI2C', 'gender': 'T', 'count': 0,'exit':'F'}, 
 ]
 
 
@@ -99,10 +124,10 @@ data_request = [
 ,{'name': 'D','plant':'SVI2A', 'gender': 'F', 'en': 11103}
 ,{'name': 'E','plant':'SVI2A', 'gender': 'M', 'en': 11104}
 ,{'name': 'F','plant':'SVI2A', 'gender': 'F', 'en': 11105}
-# ,{'name': 'G','plant':'SVI2B', 'gender': 'M', 'en': 11106}
-# ,{'name': 'H','plant':'SVI2B', 'gender': 'F', 'en': 11107}
-# ,{'name': 'I','plant':'SVI2B', 'gender': 'M', 'en': 11108}
-# ,{'name': 'J','plant':'SVI2B', 'gender': 'F', 'en': 11109}
+,{'name': 'G','plant':'SVI2B', 'gender': 'M', 'en': 11106}
+,{'name': 'H','plant':'SVI2B', 'gender': 'F', 'en': 11107}
+,{'name': 'I','plant':'SVI2B', 'gender': 'M', 'en': 11108}
+,{'name': 'J','plant':'SVI2B', 'gender': 'F', 'en': 11109}
 # ,{'name': 'K','plant':'SVI2B', 'gender': 'M', 'en': 11110}
 # ,{'name': 'L','plant':'SVI2B', 'gender': 'F', 'en': 11111}
 # ,{'name': 'M','plant':'SVI2B', 'gender': 'M', 'en': 11112}
@@ -121,6 +146,9 @@ data_request = [
 # ,{'name': 'Z','plant':'SVI2D', 'gender': 'F', 'en': 11125}
 ]
 
-data_count = 2
-output = generate_locker_id_new(data_management, data_count, data_request)
-# print(output)
+data_count = 3
+output = generate_locker_id_prepare(data_management, data_count, data_request)
+print(output)
+
+
+
