@@ -1,4 +1,7 @@
-Vehicle
-SnackBreak
-Smock
-Golf Cart
+ Mon-3:N
+ Tue-4:O	
+ Wed-5:P	
+ Thu-6:Q	
+ Fri-7:R	
+ Sat-8:S	
+ Sun-9:T

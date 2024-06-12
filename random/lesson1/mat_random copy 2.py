@@ -28,28 +28,32 @@ def main():
     allow_duplicates = input("Allow duplicates? (Y/N): ").strip().upper()
     text_file = input("Enter the name of the text file to save the material numbers: ")
 
-    status = True
-    generated_materials = set()
-    
     max_combinations = calculate_possible_combinations(format_example)
     if allow_duplicates == 'N' and num_materials > max_combinations:
         print(f"Cannot generate {num_materials} unique material numbers with the given format. Maximum possible is {max_combinations}.")
-        # status = False
-        return 
+        return
 
-    with open(text_file, 'w') as file:
-        for _ in range(num_materials):
-            if allow_duplicates == 'N' and len(generated_materials) >= max_combinations:
-                print("Reached the maximum number of unique material numbers possible with the given format.")
-                break
-            while True:
-                material_no = generate_material_no(format_example)
-                if allow_duplicates == 'Y' or material_no not in generated_materials:
-                    generated_materials.add(material_no)
-                    file.write(material_no + '\n')
-                    break
-    print(f"{len(generated_materials)} material numbers generated and saved to {text_file}")
+    generated_materials = set()
+    all_possible_materials = set()
+
+    if allow_duplicates == 'N':
+        while len(all_possible_materials) < max_combinations:
+            material_no = generate_material_no(format_example)
+            all_possible_materials.add(material_no)
+        all_possible_materials = list(all_possible_materials)
+        random.shuffle(all_possible_materials)
+        selected_materials = all_possible_materials[:num_materials]
+    else:
+        selected_materials = []
+        while len(selected_materials) < num_materials:
+            material_no = generate_material_no(format_example)
+            selected_materials.append(material_no)
     
+    with open(text_file, 'w') as file:
+        for material_no in selected_materials:
+            file.write(material_no + '\n')
+
+    print(f"{len(selected_materials)} material numbers generated and saved to {text_file}")
 
 if __name__ == "__main__":
     main()
