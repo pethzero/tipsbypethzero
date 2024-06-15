@@ -1,0 +1,94 @@
+แน่นอนครับ ต่อไปนี้เป็นตัวอย่างของการสร้างคลาสเพื่อจัดการกับข้อมูลเกี่ยวกับวัสดุ (material) และการสืบทอดคลาสใน Python ที่จำลองการใช้งานจริงในการทำงานเกี่ยวกับวัสดุ เช่น การจัดการวัสดุในคลังสินค้า
+
+### ตัวอย่างการจัดการวัสดุ (Material Management) ใน Python
+
+```python
+# Superclass
+class Material:
+    def __init__(self, name, quantity):
+        self.name = name
+        self.quantity = quantity
+
+    def display_info(self):
+        print(f"Material: {self.name}, Quantity: {self.quantity}")
+
+    def add_quantity(self, amount):
+        self.quantity += amount
+        print(f"Added {amount} to {self.name}. New quantity: {self.quantity}")
+
+    def use_quantity(self, amount):
+        if amount > self.quantity:
+            print(f"Not enough {self.name} in stock!")
+        else:
+            self.quantity -= amount
+            print(f"Used {amount} of {self.name}. Remaining quantity: {self.quantity}")
+
+# Subclass
+class PerishableMaterial(Material):
+    def __init__(self, name, quantity, expiration_date):
+        super().__init__(name, quantity)
+        self.expiration_date = expiration_date
+
+    def display_info(self):
+        super().display_info()
+        print(f"Expiration Date: {self.expiration_date}")
+
+    def check_expiration(self, current_date):
+        if current_date > self.expiration_date:
+            print(f"{self.name} has expired!")
+        else:
+            print(f"{self.name} is still good until {self.expiration_date}")
+
+# Main function
+def main():
+    # Create a general material object
+    steel = Material(name="Steel", quantity=100)
+    steel.display_info()
+    steel.add_quantity(50)
+    steel.use_quantity(30)
+
+    print("\n")  # For better readability
+
+    # Create a perishable material object
+    milk = PerishableMaterial(name="Milk", quantity=20, expiration_date="2024-07-01")
+    milk.display_info()
+    milk.add_quantity(10)
+    milk.use_quantity(5)
+    milk.check_expiration(current_date="2024-06-10")
+
+if __name__ == "__main__":
+    main()
+```
+
+### คำอธิบาย
+
+1. **Superclass (Material)**:
+    - `Material` เป็นคลาสหลักที่เก็บข้อมูลพื้นฐานเกี่ยวกับวัสดุ เช่น ชื่อ (`name`) และปริมาณ (`quantity`).
+    - มีเมธอด `display_info` เพื่อแสดงข้อมูลวัสดุ, `add_quantity` เพื่อเพิ่มปริมาณวัสดุ, และ `use_quantity` เพื่อลดปริมาณวัสดุ.
+
+2. **Subclass (PerishableMaterial)**:
+    - `PerishableMaterial` เป็นคลาสที่สืบทอดจาก `Material` และเพิ่มคุณสมบัติพิเศษสำหรับวัสดุที่มีวันหมดอายุ (`expiration_date`).
+    - Override เมธอด `display_info` เพื่อแสดงวันหมดอายุเพิ่มเติม และมีเมธอด `check_expiration` เพื่อเช็คว่าวัสดุหมดอายุหรือยัง.
+
+3. **Main function**:
+    - สร้างอ็อบเจกต์ `steel` จากคลาส `Material` และใช้งานเมธอดต่างๆ เพื่อแสดงข้อมูล เพิ่มปริมาณ และใช้ปริมาณวัสดุ.
+    - สร้างอ็อบเจกต์ `milk` จากคลาส `PerishableMaterial` และใช้งานเมธอดต่างๆ เพื่อแสดงข้อมูล เพิ่มปริมาณ ใช้ปริมาณวัสดุ และเช็ควันหมดอายุ.
+
+### ผลลัพธ์ที่คาดหวัง
+
+เมื่อรันโปรแกรม จะได้ผลลัพธ์ดังนี้:
+
+```
+Material: Steel, Quantity: 100
+Added 50 to Steel. New quantity: 150
+Used 30 of Steel. Remaining quantity: 120
+
+
+Material: Milk, Quantity: 20
+Expiration Date: 2024-07-01
+Added 10 to Milk. New quantity: 30
+Used 5 of Milk. Remaining quantity: 25
+Milk is still good until 2024-07-01
+```
+
+ในตัวอย่างนี้ แสดงให้เห็นถึงการใช้งานการสืบทอดคลาสและการจัดการวัสดุที่มีคุณสมบัติแตกต่างกัน

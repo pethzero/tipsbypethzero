@@ -69,21 +69,19 @@ op_asset_part = {
 op_asset_assign = {
       'id':0,
       'opap_id':11,	
-      'type':'Mobile',
-      'material':'Mobile 1',
-      'description':'Samsung Galaxy S4',
       'area':'AA',
       'building':'AA',
       'owner_by':'11',
-      'manger_by':'13254',
+      'manager_by':'13254',
       'create_by':'1234',
       'createdate_by':'2024-06-01',
       'editdate_by':'2024-06-02',
       'track_on':'xxxxx',
+      'status':10,
   }
 
 
 # print(generate_sql_create_table('op_asset_type', infer_sql_types(op_asset_type), primary_key='id', identity_column='id'))
 print(generate_sql_create_table('op_asset_part', infer_sql_types(op_asset_part), primary_key='id', identity_column='id'))
-# print(generate_sql_create_table('op_asset_record', infer_sql_types(op_asset_assign), primary_key='id', identity_column='id'))
+print(generate_sql_create_table('op_asset_record', infer_sql_types(op_asset_assign), primary_key='id', identity_column='id'))
 
