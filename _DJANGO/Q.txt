@@ -1,0 +1,28 @@
+
+from django.db.models import Q
+
+# ใช้ Q object เพื่อรวมเงื่อนไขด้วย OR
+query = Q(locker_id=record_id) | Q(temporary_locker_id=record_id)
+
+# นำ query object นี้ไปใช้ในการค้นหา
+filtered_records = LockerRecord.objects.filter(query)
+
+
+from django.db.models import Q
+from your_app.models import LockerManagement, LockerRecord
+
+# ขั้นตอนที่ 1: กรองรายการ
+filtered_records = LockerManagement.objects.using('op_doc_ctrl').filter(building="SVI2A", zone="A", locker="11")
+
+# ขั้นตอนที่ 2: เก็บ IDs ของรายการที่กรองไว้ในรายการ
+filtered_ids = list(filtered_records.values_list('id', flat=True))
+
+# ขั้นตอนที่ 3: ลบรายการที่กรองไว้
+filtered_records.delete()
+
+# ขั้นตอนที่ 4: ใช้ IDs ที่เก็บไว้ในการอัปเดต locker_id และ temporary_locker_id เป็น None สำหรับแต่ละ LockerRecord
+for record_id in filtered_ids:
+    LockerRecord.objects.using('op_doc_ctrl').filter(
+        Q(locker_id=record_id) | Q(temporary_locker_id=record_id)
+    ).update(locker_id=None, temporary_locker_id=None)
+    print(f"อัปเดต locker_id และ temporary_locker_id เป็น None สำหรับ LockerRecord ที่มี locker_id หรือ temporary_locker_id เท่ากับ {record_id}")
