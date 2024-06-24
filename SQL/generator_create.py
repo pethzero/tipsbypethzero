@@ -54,6 +54,7 @@ def is_date(string):
 
 
 # Example usage:
+<<<<<<< HEAD
 zx_timezone = {
     'id':1
     ,'createdate_by':'2024-06-01'
@@ -65,4 +66,36 @@ zx_timezone = {
 # print(generate_sql_create_table('op_asset_type', infer_sql_types(op_asset_type), primary_key='id', identity_column='id'))
 # print(generate_sql_create_table('op_asset_part', infer_sql_types(op_asset_part), primary_key='id', identity_column='id'))
 print(generate_sql_create_table('zx_timezone', infer_sql_types(zx_timezone), primary_key='id', identity_column='id'))
+=======
+op_asset_type = {'id':1,'type':'Mobile','is_active':True,'createdate_by':'2024-06-01'}
+print(infer_sql_types(op_asset_type))
+
+op_asset_part = {
+  'id':11,
+  'type':'Mobile',
+  'material':'Mobile 1',
+  'description':'Samsung Galaxy S4',
+  'create_date':'2024-06-01',
+  'edit_date':'2024-06-02',
+}
+
+op_asset_assign = {
+      'id':0,
+      'opap_id':11,	
+      'area':'AA',
+      'building':'AA',
+      'owner_by':'11',
+      'manager_by':'13254',
+      'create_by':'1234',
+      'createdate_by':'2024-06-01',
+      'editdate_by':'2024-06-02',
+      'track_on':'xxxxx',
+      'status':10,
+  }
+
+
+# print(generate_sql_create_table('op_asset_type', infer_sql_types(op_asset_type), primary_key='id', identity_column='id'))
+print(generate_sql_create_table('op_asset_part', infer_sql_types(op_asset_part), primary_key='id', identity_column='id'))
+print(generate_sql_create_table('op_asset_record', infer_sql_types(op_asset_assign), primary_key='id', identity_column='id'))
+>>>>>>> 28c2777cc839d573ed1e5531bfa0195221a95ab6
 
